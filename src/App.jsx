@@ -13,6 +13,13 @@ function App() {
       archived: false,
       createdAt: '3/18/2023',
     },
+    {
+      id: nanoid(),
+      title: 'Second Todo',
+      body: 'I want to make a good person',
+      archived: false,
+      createdAt: '3/18/2023',
+    },
   ]);
 
   const [searchText, setSearchText] = useState('');
@@ -49,14 +56,8 @@ function App() {
   };
 
   return (
-    <div className={`flex flex-col items-center justify-center w-full h-screen ${toggleMode ? 'bg-black ' : ''}`}>
-      {console.log(todos)}
-      <div className="p-5 w-[1300px] h-[700px]">
-        {todos.map((gg) => (
-          <p key={gg.id}>
-            <p>{gg.body}</p>
-          </p>
-        ))}
+    <div className={`flex flex-col items-center justify-center w-full h-fit ${toggleMode ? 'bg-black ' : ''}`}>
+      <div className="p-5 w-[1300px] h-fit">
         <Header handleToggleMode={setToggleMode} toggleMode={toggleMode} />
         <Search handleSearchText={setSearchText} toggleMode={toggleMode} />
         <TodosList toggleMode={toggleMode} todos={todos.filter((todo) => todo.title.toLowerCase().includes(searchText.toLowerCase()))} handleAddTodo={addTodo} handleDeleteTodo={deleteTodos} />
