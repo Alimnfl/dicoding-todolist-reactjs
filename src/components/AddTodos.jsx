@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-function AddTodos(handleAddTodo) {
+function AddTodos({ handleAddTodo }) {
   const [todoText, setTodoText] = useState({
     id: '0',
     title: '',
@@ -49,5 +50,9 @@ function AddTodos(handleAddTodo) {
     </div>
   );
 }
+
+AddTodos.propTypes = {
+  handleAddTodo: PropTypes.func.isRequired,
+};
 
 export default AddTodos;
