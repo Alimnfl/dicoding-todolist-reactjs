@@ -1,9 +1,10 @@
 import { FaTrashAlt } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+import { showFormattedDate } from '../utils';
 
-function Todo({ id, body, title, archived, createdAt, handleDeleteTodo, handleArchiveClick }) {
+function Note({ id, body, title, archived, createdAt, handleDeleteNote, handleArchiveClick }) {
   const onDeleteClick = () => {
-    handleDeleteTodo(id);
+    handleDeleteNote(id);
   };
   const onArchiveClick = () => {
     handleArchiveClick(id);
@@ -15,7 +16,7 @@ function Todo({ id, body, title, archived, createdAt, handleDeleteTodo, handleAr
         <span className="text-xs">{body}</span>
       </div>
       <div className="flex flex-row items-center justify-between">
-        <p className="">{createdAt}</p>
+        <p className="">{showFormattedDate(createdAt)}</p>
         {!archived ? (
           <button className="px-4 font-semibold bg-yellow-400 border border-yellow-500 rounded-md w-fit" onClick={onArchiveClick}>
             Archive
@@ -27,14 +28,14 @@ function Todo({ id, body, title, archived, createdAt, handleDeleteTodo, handleAr
   );
 }
 
-Todo.propTypes = {
-  id: PropTypes.number.isRequired,
+Note.propTypes = {
+  id: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   archived: PropTypes.bool.isRequired,
   createdAt: PropTypes.string.isRequired,
-  handleDeleteTodo: PropTypes.func.isRequired,
+  handleDeleteNote: PropTypes.func.isRequired,
   handleArchiveClick: PropTypes.func.isRequired,
 };
 
-export default Todo;
+export default Note;
