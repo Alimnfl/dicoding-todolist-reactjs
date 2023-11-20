@@ -1,4 +1,6 @@
-function Header(handleToggleMode, toggleMode) {
+import PropTypes from 'prop-types';
+
+function Header({ handleToggleMode, toggleMode }) {
   const handleToggleDarkMode = () => {
     handleToggleMode((previousDarkmode) => !previousDarkmode);
   };
@@ -12,5 +14,10 @@ function Header(handleToggleMode, toggleMode) {
     </div>
   );
 }
+
+Header.propTypes = {
+  handleToggleMode: PropTypes.func.isRequired,
+  toggleMode: PropTypes.bool.isRequired,
+};
 
 export default Header;
