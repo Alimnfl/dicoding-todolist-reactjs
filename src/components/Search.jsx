@@ -1,6 +1,7 @@
 import { FaSearch } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
-function Search(handleSearchText, toggleMode) {
+function Search({ handleSearchText, toggleMode }) {
   const handleChange = (e) => {
     const searchText = e.target.value;
     handleSearchText(searchText);
@@ -12,5 +13,10 @@ function Search(handleSearchText, toggleMode) {
     </div>
   );
 }
+
+Search.propTypes = {
+  handleSearchText: PropTypes.func.isRequired,
+  toggleMode: PropTypes.bool.isRequired,
+};
 
 export default Search;
