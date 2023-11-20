@@ -1,6 +1,7 @@
 import { FaTrashAlt } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
-function Todo(id, body, title, archived, createdAt, handleDeleteTodo, handleArchiveClick) {
+function Todo({ id, body, title, archived, createdAt, handleDeleteTodo, handleArchiveClick }) {
   const onDeleteClick = () => {
     handleDeleteTodo(id);
   };
@@ -25,5 +26,15 @@ function Todo(id, body, title, archived, createdAt, handleDeleteTodo, handleArch
     </div>
   );
 }
+
+Todo.propTypes = {
+  id: PropTypes.number.isRequired,
+  body: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  archived: PropTypes.bool.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  handleDeleteTodo: PropTypes.func.isRequired,
+  handleArchiveClick: PropTypes.func.isRequired,
+};
 
 export default Todo;
